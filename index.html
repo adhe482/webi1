@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            color: #00f;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        h1 {
+            font-size: 4vw;
+            text-transform: uppercase;
+            letter-spacing: 0.5em;
+            text-shadow:
+                0 0 5px #00f,
+                0 0 10px #00f,
+                0 0 20px #00f,
+                0 0 40px #00a,
+                0 0 80px #00a;
+            animation: pulse 2s infinite alternate;
+        }
+        
+        /* Simple responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6vw;
+                letter-spacing: 0.3em;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 8vw;
+                letter-spacing: 0.2em;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            from {
+                text-shadow:
+                    0 0 5px #00f,
+                    0 0 10px #00f,
+                    0 0 20px #00f,
+                    0 0 40px #00a,
+                    0 0 80px #00a;
+            }
+            to {
+                text-shadow:
+                    0 0 10px #00f,
+                    0 0 20px #00f,
+                    0 0 40px #00a,
+                    0 0 80px #00a,
+                    0 0 160px #00a;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+    <div class="content">
+        <h1>Coming soon adhe482</h1>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789';
+        const fontSize = 16;
+        let columns = Math.floor(width / fontSize);
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = '#0AF'; // A nice shade of blue
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        const drawInterval = setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            columns = Math.floor(width / fontSize);
+            const newDrops = [];
+            for (let x = 0; x < columns; x++) {
+                newDrops[x] = 1;
+            }
+            // To avoid disrupting the flow, we only replace if the array grows
+            if(newDrops.length > drops.length) {
+                for(let i = 0; i < drops.length; i++) {
+                    newDrops[i] = drops[i];
+                }
+                drops.length = 0;
+                drops.push(...newDrops);
+            } else {
+                 drops.length = newDrops.length;
+            }
+        });
+    </script>
+
+</body>
+</html>
