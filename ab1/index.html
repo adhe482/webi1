@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio adhe482</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@600&display=swap');
+
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0a192f;
+            --text-color: #ccd6f6;
+            --highlight-color: #64ffda;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #133054;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--highlight-color);
+            text-decoration: none;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        header nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: var(--highlight-color);
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid #133054;
+        }
+        
+        #home {
+            padding-top: 10rem; /* Extra padding to account for fixed header */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #e6f1ff;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+        }
+        #home .subtitle {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        #home p {
+            max-width: 600px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--highlight-color);
+            color: var(--highlight-color);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+
+        h2.section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2.section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Portfolio Section */
+        #portfolio .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .portfolio-item {
+            background: #0d203d;
+            border-radius: 5px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portfolio-item h3 {
+            color: var(--highlight-color);
+        }
+
+        /* Contact Section */
+        #contact form {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        #contact input, #contact textarea {
+            background: #133054;
+            border: 1px solid #2a4c78;
+            border-radius: 4px;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #contact input::placeholder, #contact textarea::placeholder {
+            color: #8892b0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #0d203d;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#home" class="logo">adhe482</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang Saya</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <p style="color: var(--highlight-color); font-family: 'Roboto Mono', monospace;">Hai, perkenalkan nama saya</p>
+                <h1>adhe482.</h1>
+                <p class="subtitle">Saya membangun aplikasi untuk web.</p>
+                <p>Saya seorang pengembang perangkat lunak yang bersemangat dalam menciptakan solusi digital yang modern dan fungsional. Selamat datang di situs pribadi saya.</p>
+                <a href="#portfolio" class="btn">Lihat Pekerjaan Saya</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">Tentang Saya</h2>
+                <p>Halo! Saya adhe482, seorang developer dengan hasrat untuk belajar dan membangun hal-hal baru. Dari membuat website interaktif hingga aplikasi yang kompleks, saya selalu tertantang untuk memecahkan masalah dengan kode. Saya percaya bahwa teknologi dapat memberikan dampak positif dan saya berusaha untuk menjadi bagian dari perubahan itu.</p>
+                <p>Beberapa teknologi yang sering saya gunakan:</p>
+                <ul>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React & Node.js</li>
+                    <li>HTML & CSS</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <h2 class="section-title">Portofolio</h2>
+                <div class="grid">
+                    <div class="portfolio-item">
+                        <h3>Proyek Satu</h3>
+                        <p>Deskripsi singkat tentang proyek ini. Apa tujuannya, teknologi apa yang digunakan, dan apa hasil akhirnya.</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <h3>Proyek Dua</h3>
+                        <p>Deskripsi singkat tentang proyek ini. Apa tujuannya, teknologi apa yang digunakan, dan apa hasil akhirnya.</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <h3>Proyek Tiga</h3>
+                        <p>Deskripsi singkat tentang proyek ini. Apa tujuannya, teknologi apa yang digunakan, dan apa hasil akhirnya.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Hubungi Saya</h2>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem auto;">Saya selalu terbuka untuk diskusi, kolaborasi, atau sekadar menyapa. Jangan ragu untuk mengirimkan saya pesan.</p>
+                <form>
+                    <input type="text" name="name" placeholder="Nama Anda" required>
+                    <input type="email" name="email" placeholder="Email Anda" required>
+                    <textarea name="message" rows="5" placeholder="Pesan Anda" required></textarea>
+                    <button type="submit" class="btn" style="align-self: center;">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 adhe482. Dibuat dengan penuh semangat.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
